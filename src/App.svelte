@@ -17,18 +17,15 @@
     {#each Object.keys(promise) as key}
       <!-- <p>{JSON.stringify(promise[key])}</p> -->
     {/each}
-    <p>{JSON.stringify(promise.Friday.dayName)}</p>
+    <p class="QQQQQ">{JSON.stringify(promise.Friday.dayName)}</p>
     {:catch error}
       <p style="color: red">{error.message}</p>
     {/await}
   </div>
 
-  <div class="menu">
-    <button class="btn"><img src="public/images/menu-hamburguer.png" alt="" width="50%" height="50%"></button>
-  </div>
 
   <div class="conteudo">
-      <div class="dia">
+      <!-- <div class="dia">
 
         <div class="allTemps">
           <p>Dia</p>
@@ -52,7 +49,11 @@
 
         </div>
 
-      </div>
+      </div> -->
+      <div class="CCCCC"><h1>C</h1></div>
+      <div class="ABCDE"><h1>A</h1></div>
+      <div class="AAAAA"><h1>B</h1></div>
+      <div class="BBBBB"><h1>C</h1></div>
   </div>
 </div>
 
@@ -62,67 +63,57 @@
       padding: 0;
     }
     .titulo {
-      text-align: center;
       color: rgb(70, 55, 55);
       background-color: #ebf4f5;
       height: 5%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       font-family: Arial, Helvetica, sans-serif;
       font-weight: bold;
       font-size: 100%;
       padding: 2%;
+    }
+    .QQQQQ {
+      text-align: center;
     }
     .container {
       background: white;
       height: 95vh;
       width: 100%;
     }
-    .menu {
-      background: #6f84a5;
-      float: left;
-      height: 100%;
-      width: 15%;
-    }
     .conteudo { 
       background: #6f84a5;
       float: left;
       height: 100%;
-      width: 85%;
+      width: 100%;
     }
-    .dia {
+    /* .dia {
       font-family: Arial, Helvetica, sans-serif;
       font-weight: bold;
       font-size: 100%;
       margin-top: 5%;
       margin-left: 40%;
+    } */
+    .ABCDE {
+      background-color: red;
+      float: left;
+      margin-left: 10%;
+      margin-right: 10%;
     }
-    .allTemps {
+    .AAAAA {
+      background-color: blue;
+      float: left;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+    .BBBBB {
+      background: green;
+      float: left;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+    .CCCCC {
+      background-color: yellow;
       text-align: center;
-      margin-left: -85%;
-      float: center;
     }
-    .temperaturaMin {
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: bold;
-      font-size: 100%;
-      float: left;
-      margin-left: 30%;
-    }
-    .temperatura {
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: bold;
-      font-size: 100%;
-      float: left;
-    }
-    .temperaturaMax {
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: bold;
-      font-size: 100%;
-      float: left;
-    }
-
     .btn {
       width: 100%;
       height: 8%;
