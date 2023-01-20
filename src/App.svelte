@@ -1,5 +1,5 @@
 <script>
-    import Header from "./components/Header.svelte";
+  import Header from "./components/Header.svelte";
 
   const testeFetch = async () => {
     const testeResp = await fetch("http://localhost:3000/");
@@ -13,7 +13,7 @@
 
 </script>
 
-<div class="titulo">
+<!-- <div class="titulo">
     
   <div class="titulo_conteudo">
     <div class="setaEsquerda"><i class="fas fa-caret-left"></i></div>
@@ -31,7 +31,9 @@
     <div class="setaDireita"><i class="fas fa-caret-right"></i></div>
   </div>
 
-</div>
+</div> -->
+
+<Header/>
 
 <div class="conteudo">
 
@@ -39,9 +41,16 @@
 
     <div class="dia_noite">Dia</div>
 
+    <div class="conteudo_conteudo_temperatura_tempo">
+      <p>Temp Mín</p>
+      <p>Temp Atual</p>
+      <p>Temp Máx</p>
+    </div>
+
     <div class="conteudo_conteudo_temperatura">
       {#await promise then promise}
       <p>{(promise.Today.tempMin + " F")}</p>
+      
       {/await}
 
       {#await promise then promise}
@@ -54,11 +63,9 @@
     </div>
 
     <div class="conteudo_icons_temp">
-      <i class="fas fa-temperature-low"></i>
-
-      <i class="fas fa-thermometer-half"></i>
-
-      <i class="fas fa-temperature-high"></i>
+      <p>Wind Mín</p>
+      <p>Wind Atual</p>
+      <p>Wind Máx</p>
     </div>
 
     <div class="conteudo_conteudo_vento">
@@ -73,22 +80,16 @@
       {/await}
     </div>
 
-    <div class="conteudo_icons_wind">
-      <i class="fas fa-wind"></i>
-      <i class="fas fa-wind"></i>
-      <i class="fas fa-wind"></i>
-    </div>
-
   </div>
 
   <div class="box_noite">
   
     <div class="dia_noite">Noite</div>
-  
-    <div class="conteudo_icons_temp">
-      <i class="fas fa-temperature-low"></i>
-      <i class="fas fa-thermometer-half"></i>
-      <i class="fas fa-temperature-high"></i>
+    
+    <div class="conteudo_conteudo_temperatura_tempo">
+      <p>Temp Mín</p>
+      <p>Temp Atual</p>
+      <p>Temp Máx</p>
     </div>
 
     <div class="conteudo_conteudo_temperatura">
@@ -102,8 +103,13 @@
       <p>{(promise.Tonight.tempMax + " F")}</p>
       {/await}
     </div>
-  
 
+    <div class="conteudo_icons_temp">
+      <p>Wind Mín</p>
+      <p>Wind Atual</p>
+      <p>Wind Máx</p>
+    </div>
+  
     <div class="conteudo_conteudo_vento">
       {#await promise then promise}
       <p>{(promise.Tonight.windMin + " mph")}</p>
@@ -114,12 +120,6 @@
       {#await promise then promise}
       <p>{(promise.Tonight.windMax + " mph")}</p>
       {/await}
-    </div>
-
-    <div class="conteudo_icons_wind">
-      <i class="fas fa-wind"></i>
-      <i class="fas fa-wind"></i>
-      <i class="fas fa-wind"></i>
     </div>
   
   </div>
@@ -138,6 +138,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      border-bottom: 2px solid rgb(68, 61, 61);
     }
     .titulo_conteudo {
       float: left;
@@ -163,17 +164,17 @@
 
     .box_dia, .box_noite {
       background-image: linear-gradient(to right, #a7a2a2, #a19b9b, #9b9595, #958e8e, #8f8888);      
-      width: 300px;
-      height: 300px;
-      border-radius: 10px;
+      width: 350px;
+      height: 340px;
+      border-radius: 5px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
-      margin: 10px 0;
+      margin: 20px 0;
     }
 
-    .conteudo_conteudo_temperatura, .conteudo_conteudo_vento, .conteudo_icons_temp, .conteudo_icons_wind{
+    .conteudo_conteudo_temperatura, .conteudo_conteudo_vento, .conteudo_icons_temp, .conteudo_conteudo_temperatura_tempo{
       display: flex;
       width: 100%;
       flex-direction: row;
@@ -181,6 +182,7 @@
       align-items: center;
       font-size: 20px;
       padding: 5% 0;
+      border-bottom: 2px solid rgb(68, 61, 61);
     }
     
     .dia_noite {
@@ -191,6 +193,7 @@
       font-size: 20px;
       padding: 5% 0;
       background-color: rgb(177, 175, 175);
+      border-bottom: 2px solid rgb(68, 61, 61);
     }
 
 </style>
