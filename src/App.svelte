@@ -10,6 +10,7 @@
   };
 
   const promise = testeFetch();
+
 </script>
 
 <div class="titulo">
@@ -40,106 +41,87 @@
 
     <div class="conteudo_conteudo_temperatura">
       {#await promise then promise}
-      {(promise.Today.tempMin + " F")}
+      <p>{(promise.Today.tempMin + " F")}</p>
       {/await}
-    </div>
 
-    <div class="conteudo_conteudo_temperatura">
       {#await promise then promise}
-      {(promise.Today.temp + " F")}
+      <p>{(promise.Today.temp + " F")}</p>
       {/await}
-    </div>
 
-    <div class="conteudo_conteudo_temperatura">
       {#await promise then promise}
-      {(promise.Today.tempMax + " F")}
+      <p>{(promise.Today.tempMax + " F")}</p>
       {/await}
     </div>
 
-    <div class="conteudo_icons">
+    <div class="conteudo_icons_temp">
       <i class="fas fa-temperature-low"></i>
-    </div>
 
-    <div class="conteudo_icons">
       <i class="fas fa-thermometer-half"></i>
-    </div>
 
-    <div class="conteudo_icons">
       <i class="fas fa-temperature-high"></i>
     </div>
 
     <div class="conteudo_conteudo_vento">
       {#await promise then promise}
-      {(promise.Today.windMin + " mph")}
+      <p>{(promise.Today.windMin + " mph")}</p>
+      {/await}
+      {#await promise then promise}
+      <p>{(promise.Today.windAvg + " mph")}</p>
+      {/await}
+      {#await promise then promise}
+      <p>{(promise.Today.windMax + " mph")}</p>
       {/await}
     </div>
+
+    <div class="conteudo_icons_wind">
+      <i class="fas fa-wind"></i>
+      <i class="fas fa-wind"></i>
+      <i class="fas fa-wind"></i>
+    </div>
+
+  </div>
+
+  <div class="box_noite">
+  
+    <div class="dia_noite">Noite</div>
+  
+    <div class="conteudo_icons_temp">
+      <i class="fas fa-temperature-low"></i>
+      <i class="fas fa-thermometer-half"></i>
+      <i class="fas fa-temperature-high"></i>
+    </div>
+
+    <div class="conteudo_conteudo_temperatura">
+      {#await promise then promise}
+      <p>{(promise.Tonight.tempMin + " F")}</p>
+      {/await}
+      {#await promise then promise}
+      <p>{(promise.Tonight.temp + " F")}</p>
+      {/await}
+      {#await promise then promise}
+      <p>{(promise.Tonight.tempMax + " F")}</p>
+      {/await}
+    </div>
+  
 
     <div class="conteudo_conteudo_vento">
       {#await promise then promise}
-      {(promise.Today.windAvg + " mph")}
+      <p>{(promise.Tonight.windMin + " mph")}</p>
       {/await}
-    </div>
-
-    <div class="conteudo_conteudo_vento">
       {#await promise then promise}
-      {(promise.Today.windMax + " mph")}
+      <p>{(promise.Tonight.windAvg + " mph")}</p>
+      {/await}
+      {#await promise then promise}
+      <p>{(promise.Tonight.windMax + " mph")}</p>
       {/await}
     </div>
 
-  </div>
-
-</div>
-
-<div class="box_noite">
-
-  <div class="dia_noite">Noite</div>
-
-  <div class="conteudo_conteudo_temperatura">
-    {#await promise then promise}
-    {(promise.Tonight.tempMin + " F")}
-    {/await}
-  </div>
-
-  <div class="conteudo_conteudo_temperatura">
-    {#await promise then promise}
-    {(promise.Tonight.temp + " F")}
-    {/await}
-  </div>
-
-  <div class="conteudo_conteudo_temperatura">
-    {#await promise then promise}
-    {(promise.Tonight.tempMax + " F")}
-    {/await}
-  </div>
-
-  <div class="conteudo_icons">
-    <i class="fas fa-temperature-low"></i>
-  </div>
-
-  <div class="conteudo_icons">
-    <i class="fas fa-thermometer-half"></i>
-  </div>
-
-  <div class="conteudo_icons">
-    <i class="fas fa-temperature-high"></i>
-  </div>
-
-  <div class="conteudo_conteudo_vento">
-    {#await promise then promise}
-    {(promise.Tonight.windMin + " mph")}
-    {/await}
-  </div>
-
-  <div class="conteudo_conteudo_vento">
-    {#await promise then promise}
-    {(promise.Tonight.windAvg + " mph")}
-    {/await}
-  </div>
-
-  <div class="conteudo_conteudo_vento">
-    {#await promise then promise}
-    {(promise.Tonight.windMax + " mph")}
-    {/await}
+    <div class="conteudo_icons_wind">
+      <i class="fas fa-wind"></i>
+      <i class="fas fa-wind"></i>
+      <i class="fas fa-wind"></i>
+    </div>
+  
   </div>
 
 </div>
@@ -170,72 +152,45 @@
     }
     .conteudo { 
       background-image: linear-gradient(to right, #cdc9c9, #cfcccd, #d2d0d1, #d4d4d4, #d7d7d7);      
-      height: 100vh;
+      min-height: 100vh;
+      height: fit-content;
       width: 100%;
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
     }
 
-    .box_dia {
+    .box_dia, .box_noite {
       background-image: linear-gradient(to right, #a7a2a2, #a19b9b, #9b9595, #958e8e, #8f8888);      
       width: 300px;
       height: 300px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin: -350px 0 0 -150px;
       border-radius: 10px;
-    }
-
-    .box_noite {
-      background-image: linear-gradient(to right, #a7a2a2, #a19b9b, #9b9595, #958e8e, #8f8888);
-      width: 300px;
-      height: 300px;
-      position: absolute;
-      top: 103%;
-      left: 50%;
-      margin: -350px 0 0 -150px;
-      border-radius: 10px;
-    }
-
-    .conteudo_conteudo_temperatura {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .conteudo_conteudo_temperatura, .conteudo_conteudo_vento, .conteudo_icons_temp, .conteudo_icons_wind{
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
       align-items: center;
       font-size: 20px;
-      padding: 5%;
-      float: left;
-      margin-left: 9%;
-    }
-
-    .conteudo_conteudo_vento {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 20px;
-      float: left;
-      background-color: white;
-      margin: 20px;
-    }
-
-    .conteudo_icons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 20px;
-      padding: 5%;
-      float: left;
-      margin-left: 5%;
-      margin-left: 10%;
-      background-color: white;
+      padding: 5% 0;
     }
     
     .dia_noite {
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 20px;
-      padding: 5%;
-      background-color: white;
+      padding: 5% 0;
+      background-color: rgb(177, 175, 175);
     }
 
 </style>
