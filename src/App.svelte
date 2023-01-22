@@ -13,7 +13,7 @@
 
 </script>
 
-<!-- <div class="titulo">
+<div class="titulo">
     
   <div class="titulo_conteudo">
     <div class="setaEsquerda"><i class="fas fa-caret-left"></i></div>
@@ -22,7 +22,7 @@
   <div class="titulo_conteudo">
     <div class="display_dia">
       {#await promise then promise}
-      {(promise.Today.dayName)}
+      {(promise.Friday.dayName)}
       {/await}
     </div>
   </div>
@@ -31,9 +31,7 @@
     <div class="setaDireita"><i class="fas fa-caret-right"></i></div>
   </div>
 
-</div> -->
-
-<Header/>
+</div>
 
 <div class="conteudo">
 
@@ -49,16 +47,16 @@
 
     <div class="conteudo_conteudo_temperatura">
       {#await promise then promise}
-      <p>{(promise.Today.tempMin + " F")}</p>
+      <p>{(promise.Friday.tempMin + " F")}</p>
       
       {/await}
 
       {#await promise then promise}
-      <p>{(promise.Today.temp + " F")}</p>
+      <p>{(promise.Friday.temp + " F")}</p>
       {/await}
 
       {#await promise then promise}
-      <p>{(promise.Today.tempMax + " F")}</p>
+      <p>{(promise.Friday.tempMax + " F")}</p>
       {/await}
     </div>
 
@@ -70,13 +68,13 @@
 
     <div class="conteudo_conteudo_vento">
       {#await promise then promise}
-      <p>{(promise.Today.windMin + " mph")}</p>
+      <p>{(promise.Friday.windMin + " mph")}</p>
       {/await}
       {#await promise then promise}
-      <p>{(promise.Today.windAvg + " mph")}</p>
+      <p>{(promise.Friday.windAvg + " mph")}</p>
       {/await}
       {#await promise then promise}
-      <p>{(promise.Today.windMax + " mph")}</p>
+      <p>{(promise.Friday.windMax + " mph")}</p>
       {/await}
     </div>
 
@@ -94,13 +92,13 @@
 
     <div class="conteudo_conteudo_temperatura">
       {#await promise then promise}
-      <p>{(promise.Tonight.tempMin + " F")}</p>
+      <p>{(promise["Friday Night"].tempMin + " F")}</p>
       {/await}
       {#await promise then promise}
-      <p>{(promise.Tonight.temp + " F")}</p>
+      <p>{(promise["Friday Night"].temp + " F")}</p>
       {/await}
       {#await promise then promise}
-      <p>{(promise.Tonight.tempMax + " F")}</p>
+      <p>{(promise["Friday Night"].tempMax + " F")}</p>
       {/await}
     </div>
 
@@ -112,13 +110,13 @@
   
     <div class="conteudo_conteudo_vento">
       {#await promise then promise}
-      <p>{(promise.Tonight.windMin + " mph")}</p>
+      <p>{(promise["Friday Night"].windMin + " mph")}</p>
       {/await}
       {#await promise then promise}
-      <p>{(promise.Tonight.windAvg + " mph")}</p>
+      <p>{(promise["Friday Night"].windAvg + " mph")}</p>
       {/await}
       {#await promise then promise}
-      <p>{(promise.Tonight.windMax + " mph")}</p>
+      <p>{(promise["Friday Night"].windMax + " mph")}</p>
       {/await}
     </div>
   
