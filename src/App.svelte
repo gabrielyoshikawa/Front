@@ -2,7 +2,6 @@
   const testeFetch = async () => {
     const resp = await fetch("http://localhost:3000/");
     const resp2 = await resp.json();
-    console.log(resp2)
 
     return resp2;
   };
@@ -29,6 +28,7 @@
 </script>
 
 <div class="titulo">
+  <i></i>
   {#await promise then promise}
 
     <div class="titulo_conteudo">
@@ -52,7 +52,7 @@
 
   <div class="box_dia">
 
-    <div class="dia_noite">Dia</div>
+    <div class="indicador_dia">Dia</div>
 
     <div class="texto_temperatura">
       <p>Temp Mín</p>
@@ -96,7 +96,7 @@
 
   <div class="box_noite">
   
-    <div class="dia_noite">Noite</div>
+    <div class="indicador_noite">Noite</div>
     
     <div class="texto_temperatura">
       <p>Temp Mín</p>
@@ -144,7 +144,7 @@
     padding: 0;
   }
   .titulo {
-    background-color: rgb(194, 193, 193);
+    background-color: #e2e7e7;
     width: 100%;
     height: 10%;
     display: flex;
@@ -164,23 +164,23 @@
     font-family: Arial, Helvetica, sans-serif;
   }
   .setaEsquerda, .setaDireita {
-    background-color: rgb(194, 193, 193);
+    background-color: #e2e7e7;
     border: 0;
     font-size: 20px;
     min-width: 50px;
   }
   .conteudo { 
-      background-image: linear-gradient(to right, #cdc9c9, #cfcccd, #d2d0d1, #d4d4d4, #d7d7d7);      
-      min-height: 100vh;
-      height: min-content;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
+    background-color: #a9dbf1;    
+    min-height: 100vh;
+    height: min-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
   .box_dia, .box_noite {
-    background-image: linear-gradient(to right, #a7a2a2, #a19b9b, #9b9595, #958e8e, #8f8888);      
+    background-color: #e2e7e7;
     width: 350px;
     min-height: 350px;
     border-radius: 5px;
@@ -200,14 +200,27 @@
     padding: 5% 0;
     border-bottom: 2px solid rgb(68, 61, 61);
   }
-  .dia_noite {
+  .indicador_dia {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
     padding: 5% 0;
-    background-color: rgb(177, 175, 175);
+    background-image: url("../public/images/blue_sky.png");
     border-bottom: 2px solid rgb(68, 61, 61);
+    color: white;
   }
+  .indicador_noite {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    padding: 5% 0;
+    background-image: url("../public/images/night_sky.png");
+    border-bottom: 2px solid rgb(68, 61, 61);
+    color: white;
+  }
+
 </style>
