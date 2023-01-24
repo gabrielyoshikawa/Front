@@ -8,6 +8,7 @@
 
   const promise = testeFetch();
 
+  // Altera o dia da semana / Informações da Semana
   const add = () => {
     if (index < 12) {
       index = index + 2;
